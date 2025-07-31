@@ -926,16 +926,1309 @@ void main() {
 
 ---
 
+---
+
+## Question 31: Use arithmetic operators
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 10, b = 3;
+    
+    printf("a = %d, b = %d\n", a, b);
+    printf("Addition: %d + %d = %d\n", a, b, a + b);
+    printf("Subtraction: %d - %d = %d\n", a, b, a - b);
+    printf("Multiplication: %d * %d = %d\n", a, b, a * b);
+    printf("Division: %d / %d = %d\n", a, b, a / b);
+    printf("Modulo: %d %% %d = %d\n", a, b, a % b);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `+` : Addition operator
+- `-` : Subtraction operator  
+- `*` : Multiplication operator
+- `/` : Division operator (integer division for integers)
+- `%` : Modulo operator (remainder after division)
+
+---
+
+## Question 32: Use relational operators
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 10, b = 5;
+    
+    printf("a = %d, b = %d\n", a, b);
+    printf("a == b: %d\n", a == b);  // Equal to
+    printf("a != b: %d\n", a != b);  // Not equal to
+    printf("a > b: %d\n", a > b);    // Greater than
+    printf("a < b: %d\n", a < b);    // Less than
+    printf("a >= b: %d\n", a >= b);  // Greater than or equal to
+    printf("a <= b: %d\n", a <= b);  // Less than or equal to
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Relational operators return 1 (true) or 0 (false)
+- `==` : Equal to
+- `!=` : Not equal to
+- `>` : Greater than
+- `<` : Less than
+- `>=` : Greater than or equal to
+- `<=` : Less than or equal to
+
+---
+
+## Question 33: Use logical operators
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 1, b = 0;
+    
+    printf("a = %d, b = %d\n", a, b);
+    printf("a && b: %d\n", a && b);  // Logical AND
+    printf("a || b: %d\n", a || b);  // Logical OR
+    printf("!a: %d\n", !a);          // Logical NOT
+    printf("!b: %d\n", !b);          // Logical NOT
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `&&` : Logical AND (returns 1 if both operands are non-zero)
+- `||` : Logical OR (returns 1 if at least one operand is non-zero)
+- `!` : Logical NOT (returns 1 if operand is zero, 0 if non-zero)
+- In C, any non-zero value is considered true, zero is false
+
+---
+
+## Question 34: Use bitwise operators
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5, b = 3;  // 5 = 101, 3 = 011 in binary
+    
+    printf("a = %d (binary: 101), b = %d (binary: 011)\n", a, b);
+    printf("a & b: %d (binary: 001)\n", a & b);   // Bitwise AND
+    printf("a | b: %d (binary: 111)\n", a | b);   // Bitwise OR
+    printf("a ^ b: %d (binary: 110)\n", a ^ b);   // Bitwise XOR
+    printf("~a: %d\n", ~a);                       // Bitwise NOT
+    printf("a << 1: %d (binary: 1010)\n", a << 1); // Left shift
+    printf("a >> 1: %d (binary: 10)\n", a >> 1);   // Right shift
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `&` : Bitwise AND (1 if both bits are 1)
+- `|` : Bitwise OR (1 if at least one bit is 1)
+- `^` : Bitwise XOR (1 if bits are different)
+- `~` : Bitwise NOT (inverts all bits)
+- `<<` : Left shift (multiplies by 2^n)
+- `>>` : Right shift (divides by 2^n)
+
+---
+
+## Question 35: Increment and decrement operator examples
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5, b = 5;
+    
+    printf("Initial values: a = %d, b = %d\n", a, b);
+    
+    // Post-increment
+    printf("a++: %d\n", a++);  // Prints 5, then increments to 6
+    printf("After a++: a = %d\n", a);
+    
+    // Pre-increment
+    printf("++b: %d\n", ++b);  // Increments to 6, then prints 6
+    printf("After ++b: b = %d\n", b);
+    
+    // Post-decrement
+    printf("a--: %d\n", a--);  // Prints 6, then decrements to 5
+    printf("After a--: a = %d\n", a);
+    
+    // Pre-decrement
+    printf("--b: %d\n", --b);  // Decrements to 5, then prints 5
+    printf("After --b: b = %d\n", b);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `++` : Increment operator
+- `--` : Decrement operator
+- `x++` : Post-increment (use value first, then increment)
+- `++x` : Pre-increment (increment first, then use value)
+- Same applies to decrement operators
+
+---
+
+## Question 36: Write program using compound assignment operators
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 10;
+    
+    printf("Initial value: a = %d\n", a);
+    
+    a += 5;  // Same as a = a + 5
+    printf("After a += 5: a = %d\n", a);
+    
+    a -= 3;  // Same as a = a - 3
+    printf("After a -= 3: a = %d\n", a);
+    
+    a *= 2;  // Same as a = a * 2
+    printf("After a *= 2: a = %d\n", a);
+    
+    a /= 4;  // Same as a = a / 4
+    printf("After a /= 4: a = %d\n", a);
+    
+    a %= 3;  // Same as a = a % 3
+    printf("After a %%= 3: a = %d\n", a);
+    
+    a <<= 2; // Same as a = a << 2
+    printf("After a <<= 2: a = %d\n", a);
+    
+    a >>= 1; // Same as a = a >> 1
+    printf("After a >>= 1: a = %d\n", a);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Compound assignment operators combine assignment with another operation
+- `+=` : Add and assign
+- `-=` : Subtract and assign
+- `*=` : Multiply and assign
+- `/=` : Divide and assign
+- `%=` : Modulo and assign
+- `<<=` : Left shift and assign
+- `>>=` : Right shift and assign
+
+---
+
+## Question 37: Evaluate an expression using precedence
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 2, b = 3, c = 4;
+    int result;
+    
+    printf("a = %d, b = %d, c = %d\n", a, b, c);
+    
+    // Expression: a + b * c
+    result = a + b * c;
+    printf("a + b * c = %d (multiplication has higher precedence)\n", result);
+    
+    // Expression: (a + b) * c
+    result = (a + b) * c;
+    printf("(a + b) * c = %d (parentheses override precedence)\n", result);
+    
+    // Expression: a * b + c / 2
+    result = a * b + c / 2;
+    printf("a * b + c / 2 = %d (* and / have same precedence, left to right)\n", result);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Operator precedence determines order of evaluation
+- Parentheses `()` have highest precedence
+- `*`, `/`, `%` have higher precedence than `+`, `-`
+- Same precedence operators are evaluated left to right
+- Use parentheses to override default precedence
+
+---
+
+## Question 38: Explain difference between && and &
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5, b = 3;
+    
+    printf("a = %d, b = %d\n", a, b);
+    
+    // Logical AND (&&)
+    printf("a && b: %d (logical AND)\n", a && b);
+    
+    // Bitwise AND (&)
+    printf("a & b: %d (bitwise AND)\n", a & b);
+    
+    // Example with zero
+    int c = 0;
+    printf("a = %d, c = %d\n", a, c);
+    printf("a && c: %d (logical AND with zero)\n", a && c);
+    printf("a & c: %d (bitwise AND with zero)\n", a & c);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `&&` : Logical AND operator
+  - Returns 1 (true) if both operands are non-zero
+  - Returns 0 (false) if any operand is zero
+  - Short-circuits (stops evaluation if first operand is false)
+- `&` : Bitwise AND operator
+  - Performs AND operation on each bit
+  - Always evaluates both operands
+  - Returns result based on bit patterns
+
+---
+
+## Question 39: Find even or odd using conditional operator
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int number;
+    
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    
+    // Using conditional operator (ternary operator)
+    printf("%d is %s\n", number, (number % 2 == 0) ? "even" : "odd");
+    
+    // Alternative using if-else
+    if(number % 2 == 0) {
+        printf("%d is even\n", number);
+    } else {
+        printf("%d is odd\n", number);
+    }
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Conditional operator: `condition ? expression1 : expression2`
+- If condition is true, evaluates expression1
+- If condition is false, evaluates expression2
+- `number % 2 == 0` checks if number is even
+- More concise than if-else for simple conditions
+
+---
+
+## Question 40: Convert decimal to binary using bitwise shift
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int decimal, i;
+    
+    printf("Enter a decimal number: ");
+    scanf("%d", &decimal);
+    
+    printf("Binary representation of %d: ", decimal);
+    
+    // Print binary using bitwise operations
+    for(i = 31; i >= 0; i--) {
+        printf("%d", (decimal >> i) & 1);
+    }
+    printf("\n");
+    
+    // Alternative: print only significant bits
+    printf("Binary (significant bits): ");
+    int found_one = 0;
+    for(i = 31; i >= 0; i--) {
+        int bit = (decimal >> i) & 1;
+        if(bit == 1) found_one = 1;
+        if(found_one) printf("%d", bit);
+    }
+    printf("\n");
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `(decimal >> i) & 1` extracts the i-th bit
+- Right shift moves bits to the right
+- `& 1` masks all bits except the least significant bit
+- Loop from 31 to 0 prints all 32 bits
+- Second loop prints only significant bits (skips leading zeros)
+
+---
+
+## Question 41: Demonstrate short-circuit evaluation
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5, b = 0;
+    
+    printf("a = %d, b = %d\n", a, b);
+    
+    // Logical AND short-circuit
+    printf("Testing: a && b\n");
+    if(a && b) {
+        printf("Both conditions are true\n");
+    } else {
+        printf("Short-circuit: b is not evaluated because a is non-zero\n");
+    }
+    
+    // Logical OR short-circuit
+    printf("Testing: a || b\n");
+    if(a || b) {
+        printf("Short-circuit: b is not evaluated because a is non-zero\n");
+    } else {
+        printf("Both conditions are false\n");
+    }
+    
+    // Demonstrate with function calls
+    printf("Testing: a && (printf(\"This won't print\\n\"), 0)\n");
+    if(a && (printf("This won't print\n"), 0)) {
+        printf("This will print\n");
+    }
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Short-circuit evaluation stops as soon as the result is determined
+- For `&&`: if first operand is false, second is not evaluated
+- For `||`: if first operand is true, second is not evaluated
+- This can improve performance and prevent errors
+- Useful for avoiding division by zero, null pointer access, etc.
+
+---
+
+## Question 42: Use sizeof with expression
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 10;
+    double b = 3.14;
+    char c = 'A';
+    
+    printf("Size of variable a: %zu bytes\n", sizeof(a));
+    printf("Size of expression a + 5: %zu bytes\n", sizeof(a + 5));
+    printf("Size of expression a + b: %zu bytes\n", sizeof(a + b));
+    
+    printf("Size of literal 100: %zu bytes\n", sizeof(100));
+    printf("Size of literal 3.14: %zu bytes\n", sizeof(3.14));
+    printf("Size of literal 'A': %zu bytes\n", sizeof('A'));
+    
+    printf("Size of array int[5]: %zu bytes\n", sizeof(int[5]));
+    printf("Size of pointer: %zu bytes\n", sizeof(int*));
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `sizeof()` can be used with variables, expressions, or types
+- Returns the size in bytes
+- For expressions, evaluates the type but doesn't execute the expression
+- `sizeof(int[5])` returns size of array of 5 integers
+- `sizeof(int*)` returns size of pointer to integer
+
+---
+
+## Question 43: Find power using bitwise left shift
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int base = 2, power;
+    
+    printf("Enter power of 2: ");
+    scanf("%d", &power);
+    
+    // Using left shift: 2^n = 1 << n
+    int result = 1 << power;
+    printf("2^%d = %d\n", power, result);
+    
+    // Verify with multiplication
+    int verify = 1;
+    for(int i = 0; i < power; i++) {
+        verify *= 2;
+    }
+    printf("Verification: 2^%d = %d\n", power, verify);
+    
+    // Powers of 2 from 0 to 10
+    printf("Powers of 2:\n");
+    for(int i = 0; i <= 10; i++) {
+        printf("2^%d = %d\n", i, 1 << i);
+    }
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Left shift by n positions multiplies by 2^n
+- `1 << n` gives 2^n
+- More efficient than multiplication for powers of 2
+- Limited to powers of 2 (not general exponentiation)
+- Useful for bit manipulation and optimization
+
+---
+
+## Question 44: Toggle a bit using XOR
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int num = 10;  // Binary: 1010
+    int position;
+    
+    printf("Original number: %d (binary: 1010)\n", num);
+    printf("Enter bit position to toggle (0-31): ");
+    scanf("%d", &position);
+    
+    // Toggle bit using XOR
+    int mask = 1 << position;
+    num = num ^ mask;
+    
+    printf("After toggling bit %d: %d\n", position, num);
+    
+    // Show binary representation
+    printf("Binary representation: ");
+    for(int i = 31; i >= 0; i--) {
+        printf("%d", (num >> i) & 1);
+    }
+    printf("\n");
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- XOR with 1 toggles a bit (0 becomes 1, 1 becomes 0)
+- `1 << position` creates a mask with 1 at the specified position
+- `num ^ mask` toggles the bit at that position
+- XOR properties: `0 ^ 1 = 1`, `1 ^ 1 = 0`
+- Useful for bit manipulation and flags
+
+---
+
+## Question 45: Explain difference between a = b++ and a = ++b
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int b = 5;
+    int a;
+    
+    printf("Initial value: b = %d\n", b);
+    
+    // Post-increment assignment
+    a = b++;  // a gets the value of b (5), then b is incremented to 6
+    printf("After a = b++: a = %d, b = %d\n", a, b);
+    
+    // Reset b
+    b = 5;
+    
+    // Pre-increment assignment
+    a = ++b;  // b is incremented to 6, then a gets the value of b (6)
+    printf("After a = ++b: a = %d, b = %d\n", a, b);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `a = b++` : Post-increment assignment
+  - Assigns current value of b to a
+  - Then increments b
+- `a = ++b` : Pre-increment assignment
+  - Increments b first
+  - Then assigns new value of b to a
+- Both increment b, but differ in when the increment happens
+
+---
+
+## Question 46: Use ternary operator
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int age;
+    
+    printf("Enter your age: ");
+    scanf("%d", &age);
+    
+    // Simple ternary operator
+    printf("You are %s\n", (age >= 18) ? "an adult" : "a minor");
+    
+    // Nested ternary operator
+    printf("Category: %s\n", 
+           (age < 13) ? "child" : 
+           (age < 20) ? "teenager" : 
+           (age < 65) ? "adult" : "senior");
+    
+    // Ternary with arithmetic
+    int max = (age > 25) ? age : 25;
+    printf("Maximum value: %d\n", max);
+    
+    // Ternary with different data types
+    printf("Status: %s\n", (age >= 18) ? "eligible" : "not eligible");
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Ternary operator: `condition ? expression1 : expression2`
+- Compact alternative to if-else
+- Can be nested for multiple conditions
+- Both expressions should be of compatible types
+- Useful for simple conditional assignments
+
+---
+
+## Question 47: Demonstrate logical NOT
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5, b = 0;
+    
+    printf("a = %d, b = %d\n", a, b);
+    printf("!a = %d\n", !a);  // 0 (false)
+    printf("!b = %d\n", !b);  // 1 (true)
+    
+    // Using logical NOT in conditions
+    if(!a) {
+        printf("a is zero\n");
+    } else {
+        printf("a is non-zero\n");
+    }
+    
+    if(!b) {
+        printf("b is zero\n");
+    } else {
+        printf("b is non-zero\n");
+    }
+    
+    // Double negation
+    printf("!!a = %d\n", !!a);  // 1 (true)
+    printf("!!b = %d\n", !!b);  // 0 (false)
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `!` operator negates the logical value
+- `!0` = 1 (true)
+- `!non_zero` = 0 (false)
+- `!!` double negation converts to boolean (0 or 1)
+- Useful for checking if a value is zero or non-zero
+
+---
+
+## Question 48: Operator to check if number is power of 2
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int num;
+    
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    
+    // Method 1: Using bitwise AND
+    if(num > 0 && (num & (num - 1)) == 0) {
+        printf("%d is a power of 2\n", num);
+    } else {
+        printf("%d is not a power of 2\n", num);
+    }
+    
+    // Method 2: Using loop
+    int temp = num;
+    int is_power_of_2 = 1;
+    
+    if(num <= 0) {
+        is_power_of_2 = 0;
+    } else {
+        while(temp > 1) {
+            if(temp % 2 != 0) {
+                is_power_of_2 = 0;
+                break;
+            }
+            temp /= 2;
+        }
+    }
+    
+    printf("Method 2 result: %d is %s\n", num, 
+           is_power_of_2 ? "a power of 2" : "not a power of 2");
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Power of 2 has exactly one bit set to 1
+- `num & (num - 1)` removes the least significant 1 bit
+- If result is 0, number has only one 1 bit (power of 2)
+- Example: 8 (1000) & 7 (0111) = 0
+- More efficient than division method
+
+---
+
+## Question 49: Find maximum of three numbers using ternary
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a, b, c;
+    
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+    
+    // Using nested ternary operator
+    int max = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
+    
+    printf("Maximum of %d, %d, %d is %d\n", a, b, c, max);
+    
+    // Alternative using if-else
+    int max2;
+    if(a > b) {
+        max2 = (a > c) ? a : c;
+    } else {
+        max2 = (b > c) ? b : c;
+    }
+    
+    printf("Maximum (alternative): %d\n", max2);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Nested ternary operator: `condition1 ? expression1 : (condition2 ? expression2 : expression3)`
+- Compares a with b first, then compares the larger with c
+- More compact than if-else but can be harder to read
+- Useful for simple conditional logic
+
+---
+
+## Question 50: Swap variables using XOR
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a, b;
+    
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    
+    printf("Before swap: a = %d, b = %d\n", a, b);
+    
+    // Swap using XOR
+    a = a ^ b;
+    b = a ^ b;
+    a = a ^ b;
+    
+    printf("After swap: a = %d, b = %d\n", a, b);
+    
+    // Verify with arithmetic method
+    int x = 10, y = 20;
+    printf("Before swap: x = %d, y = %d\n", x, y);
+    
+    x = x + y;
+    y = x - y;
+    x = x - y;
+    
+    printf("After swap: x = %d, y = %d\n", x, y);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- XOR swap: `a = a ^ b; b = a ^ b; a = a ^ b;`
+- Works because XOR is associative and commutative
+- `a ^ a = 0` and `a ^ 0 = a`
+- No temporary variable needed
+- Can cause issues if a and b point to same memory location
+
+---
+
+## Question 51: Use modulo operator
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int dividend, divisor;
+    
+    printf("Enter dividend: ");
+    scanf("%d", &dividend);
+    printf("Enter divisor: ");
+    scanf("%d", &divisor);
+    
+    if(divisor != 0) {
+        int quotient = dividend / divisor;
+        int remainder = dividend % divisor;
+        
+        printf("Quotient: %d\n", quotient);
+        printf("Remainder: %d\n", remainder);
+        printf("Verification: %d = %d * %d + %d\n", 
+               dividend, divisor, quotient, remainder);
+    } else {
+        printf("Error: Division by zero!\n");
+    }
+    
+    // Common uses of modulo
+    printf("Last digit of %d: %d\n", dividend, dividend % 10);
+    printf("Is %d even? %s\n", dividend, (dividend % 2 == 0) ? "Yes" : "No");
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `%` operator returns remainder after division
+- `dividend = divisor * quotient + remainder`
+- Useful for:
+  - Finding last digit (mod 10)
+  - Checking even/odd (mod 2)
+  - Circular arrays (mod array_size)
+  - Time calculations (mod 24, mod 60)
+
+---
+
+## Question 52: Compound assignment inside loop
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int sum = 0, product = 1;
+    int n;
+    
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    
+    printf("Enter %d numbers:\n", n);
+    
+    for(int i = 0; i < n; i++) {
+        int num;
+        scanf("%d", &num);
+        
+        // Compound assignments in loop
+        sum += num;      // Same as sum = sum + num
+        product *= num;  // Same as product = product * num
+    }
+    
+    printf("Sum: %d\n", sum);
+    printf("Product: %d\n", product);
+    
+    // Another example with bitwise operations
+    int result = 0;
+    for(int i = 0; i < 5; i++) {
+        result |= (1 << i);  // Set i-th bit
+        printf("After setting bit %d: %d\n", i, result);
+    }
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Compound assignment operators are useful in loops
+- `+=` for accumulating sums
+- `*=` for accumulating products
+- `|=` for setting bits
+- `&=` for clearing bits
+- More concise and often more efficient than separate operations
+
+---
+
+## Question 53: Write complex expression with all operators
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 10, b = 5, c = 3;
+    int result;
+    
+    printf("a = %d, b = %d, c = %d\n", a, b, c);
+    
+    // Complex expression with multiple operators
+    result = (a + b * c) & ((a - b) | (c << 2)) ^ (a % b);
+    printf("Complex expression result: %d\n", result);
+    
+    // Break down the expression
+    int step1 = b * c;           // 5 * 3 = 15
+    int step2 = a + step1;       // 10 + 15 = 25
+    int step3 = a - b;           // 10 - 5 = 5
+    int step4 = c << 2;          // 3 << 2 = 12
+    int step5 = step3 | step4;   // 5 | 12 = 13
+    int step6 = a % b;           // 10 % 5 = 0
+    int step7 = step2 & step5;   // 25 & 13 = 9
+    int final_result = step7 ^ step6; // 9 ^ 0 = 9
+    
+    printf("Step-by-step breakdown:\n");
+    printf("b * c = %d\n", step1);
+    printf("a + (b * c) = %d\n", step2);
+    printf("a - b = %d\n", step3);
+    printf("c << 2 = %d\n", step4);
+    printf("(a - b) | (c << 2) = %d\n", step5);
+    printf("a %% b = %d\n", step6);
+    printf("(a + b * c) & ((a - b) | (c << 2)) = %d\n", step7);
+    printf("Final result = %d\n", final_result);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Expression combines arithmetic, bitwise, and logical operators
+- Operator precedence determines evaluation order
+- Parentheses override default precedence
+- Complex expressions should be broken down for clarity
+- Use parentheses to make precedence explicit
+
+---
+
+## Question 54: Use comma operator in an expression
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a, b, c;
+    
+    // Comma operator in variable declaration
+    a = 1, b = 2, c = 3;
+    printf("a = %d, b = %d, c = %d\n", a, b, c);
+    
+    // Comma operator in for loop
+    for(int i = 0, j = 10; i < 5; i++, j--) {
+        printf("i = %d, j = %d\n", i, j);
+    }
+    
+    // Comma operator in expression
+    int result = (a = 5, b = 10, a + b);
+    printf("Result: %d\n", result);
+    
+    // Comma operator with function calls
+    int x = (printf("Hello "), printf("World\n"), 42);
+    printf("x = %d\n", x);
+    
+    // Comma operator in conditional
+    int y = 5;
+    if(y > 3, y < 10) {
+        printf("Condition is true (value of y < 10)\n");
+    }
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Comma operator `,` evaluates expressions from left to right
+- Returns the value of the rightmost expression
+- Useful for:
+  - Multiple expressions in for loop
+  - Multiple assignments in one statement
+  - Side effects in expressions
+- Lowest precedence of all operators
+
+---
+
+## Question 55: Nest multiple ternary operations
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int score;
+    
+    printf("Enter your score (0-100): ");
+    scanf("%d", &score);
+    
+    // Nested ternary for grade calculation
+    char grade = (score >= 90) ? 'A' : 
+                 (score >= 80) ? 'B' : 
+                 (score >= 70) ? 'C' : 
+                 (score >= 60) ? 'D' : 'F';
+    
+    printf("Grade: %c\n", grade);
+    
+    // Nested ternary for number comparison
+    int a = 10, b = 20, c = 15;
+    int max = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
+    int min = (a < b) ? ((a < c) ? a : c) : ((b < c) ? b : c);
+    
+    printf("Numbers: %d, %d, %d\n", a, b, c);
+    printf("Maximum: %d\n", max);
+    printf("Minimum: %d\n", min);
+    
+    // Nested ternary for string output
+    printf("Status: %s\n", 
+           (score >= 90) ? "Excellent" :
+           (score >= 80) ? "Good" :
+           (score >= 70) ? "Average" :
+           (score >= 60) ? "Below Average" : "Fail");
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Nested ternary operators: `condition1 ? expr1 : (condition2 ? expr2 : expr3)`
+- Evaluates from right to left
+- Can be used for multiple conditions
+- More compact than if-else chains
+- Can become hard to read with many levels
+
+---
+
+## Question 56: Priority of logical operators
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 1, b = 0, c = 1;
+    
+    printf("a = %d, b = %d, c = %d\n", a, b, c);
+    
+    // Demonstrating operator precedence
+    int result1 = a && b || c;
+    printf("a && b || c = %d\n", result1);
+    
+    int result2 = (a && b) || c;
+    printf("(a && b) || c = %d\n", result2);
+    
+    int result3 = a && (b || c);
+    printf("a && (b || c) = %d\n", result3);
+    
+    // Precedence order: ! > && > ||
+    int result4 = !a && b || c;
+    printf("!a && b || c = %d\n", result4);
+    
+    int result5 = !(a && b) || c;
+    printf("!(a && b) || c = %d\n", result5);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Logical operator precedence (highest to lowest):
+  1. `!` (logical NOT)
+  2. `&&` (logical AND)
+  3. `||` (logical OR)
+- Use parentheses to override precedence
+- `&&` has higher precedence than `||`
+- Always use parentheses for clarity in complex expressions
+
+---
+
+## Question 57: Convert negative number to binary
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int num;
+    
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    
+    printf("Number: %d\n", num);
+    
+    // Method 1: Using bitwise operations
+    printf("Binary representation: ");
+    for(int i = 31; i >= 0; i--) {
+        printf("%d", (num >> i) & 1);
+    }
+    printf("\n");
+    
+    // Method 2: Using unsigned int to avoid sign issues
+    unsigned int unum = (unsigned int)num;
+    printf("Binary (unsigned): ");
+    for(int i = 31; i >= 0; i--) {
+        printf("%d", (unum >> i) & 1);
+    }
+    printf("\n");
+    
+    // Show two's complement for negative numbers
+    if(num < 0) {
+        printf("Two's complement representation:\n");
+        printf("Original: ");
+        for(int i = 31; i >= 0; i--) {
+            printf("%d", ((-num) >> i) & 1);
+        }
+        printf("\n");
+        printf("Inverted + 1: ");
+        for(int i = 31; i >= 0; i--) {
+            printf("%d", (num >> i) & 1);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Negative numbers use two's complement representation
+- To get negative: invert all bits and add 1
+- Right shift preserves sign bit for negative numbers
+- Cast to unsigned to see actual bit pattern
+- 32-bit integers use 31 bits for magnitude, 1 for sign
+
+---
+
+## Question 58: Demonstrate use of ! operator
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5, b = 0;
+    
+    printf("a = %d, b = %d\n", a, b);
+    
+    // Basic logical NOT
+    printf("!a = %d\n", !a);
+    printf("!b = %d\n", !b);
+    
+    // Using ! in conditions
+    if(!a) {
+        printf("a is zero\n");
+    } else {
+        printf("a is non-zero\n");
+    }
+    
+    if(!b) {
+        printf("b is zero\n");
+    } else {
+        printf("b is non-zero\n");
+    }
+    
+    // Double negation
+    printf("!!a = %d\n", !!a);
+    printf("!!b = %d\n", !!b);
+    
+    // ! with comparison operators
+    printf("!(a > 3) = %d\n", !(a > 3));
+    printf("!(b == 0) = %d\n", !(b == 0));
+    
+    // ! with logical operators
+    printf("!(a && b) = %d\n", !(a && b));
+    printf("!(a || b) = %d\n", !(a || b));
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `!` operator negates the logical value
+- `!0` = 1 (true)
+- `!non_zero` = 0 (false)
+- Can be used with any expression
+- `!!` converts to boolean (0 or 1)
+- Useful for checking zero/non-zero conditions
+
+---
+
+## Question 59: Operator used to check parity
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int num;
+    
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    
+    // Method 1: Using modulo operator
+    if(num % 2 == 0) {
+        printf("%d is even\n", num);
+    } else {
+        printf("%d is odd\n", num);
+    }
+    
+    // Method 2: Using bitwise AND
+    if((num & 1) == 0) {
+        printf("%d is even (bitwise check)\n", num);
+    } else {
+        printf("%d is odd (bitwise check)\n", num);
+    }
+    
+    // Method 3: Using ternary operator
+    printf("%d is %s\n", num, (num % 2 == 0) ? "even" : "odd");
+    
+    // Check multiple numbers
+    printf("Parity check for numbers 1-10:\n");
+    for(int i = 1; i <= 10; i++) {
+        printf("%d: %s\n", i, (i & 1) ? "odd" : "even");
+    }
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- Parity refers to whether a number is even or odd
+- `num % 2 == 0` checks if remainder is 0 (even)
+- `num & 1 == 0` checks if least significant bit is 0 (even)
+- Bitwise method is more efficient
+- Both methods work for positive and negative numbers
+
+---
+
+## Question 60: Use sizeof(a++) – does a++ execute?
+
+**Answer:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5;
+    
+    printf("Before sizeof(a++): a = %d\n", a);
+    
+    // sizeof(a++) - a++ is NOT executed
+    size_t size = sizeof(a++);
+    printf("sizeof(a++) = %zu\n", size);
+    printf("After sizeof(a++): a = %d (unchanged!)\n", a);
+    
+    // Compare with actual increment
+    printf("Before a++: a = %d\n", a);
+    a++;
+    printf("After a++: a = %d\n", a);
+    
+    // sizeof with different expressions
+    printf("sizeof(a + 1) = %zu\n", sizeof(a + 1));
+    printf("sizeof(a = 10) = %zu\n", sizeof(a = 10));
+    printf("a is still: %d\n", a);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- `sizeof()` is a compile-time operator
+- The expression inside `sizeof()` is NOT evaluated
+- Only the type of the expression is determined
+- `sizeof(a++)` returns size of int, doesn't increment a
+- This is because `sizeof()` operates on types, not values
+- Useful for avoiding side effects in expressions
+
+---
+
 ## Summary
 
-These 30 questions cover fundamental C programming concepts including:
+These 60 questions cover comprehensive C programming concepts including:
 - Basic input/output operations
 - Data types and variables
-- Arithmetic operations
-- Control structures
+- Arithmetic, relational, logical, and bitwise operators
+- Control structures and loops
 - Functions and operators
-- Constants and comments
-- Compilation and execution
+- Constants, comments, and compilation
+- Advanced operator concepts and precedence
+- Bit manipulation and optimization techniques
 - Best practices and standards
 
 Practice these examples to build a strong foundation in C programming! 
