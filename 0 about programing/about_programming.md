@@ -112,18 +112,7 @@ Programming languages are tools that allow us to communicate with computers. The
 
 ---
 
-## Frequently Asked Questions (FAQs)
 
-**Q: Is C still relevant today?**
-- Yes! C is widely used in system programming, embedded systems, and as a foundation for learning other languages.
-
-**Q: Is C hard to learn?**
-- C is simple but powerful. It requires attention to detail (like memory management), but it's great for building strong programming skills.
-
-**Q: What do I need to start programming in C?**
-- A computer, a text editor (like VS Code), and a C compiler (like GCC).
-
----
 
 ## Structure of a C Program (With Full Explanation)
 
