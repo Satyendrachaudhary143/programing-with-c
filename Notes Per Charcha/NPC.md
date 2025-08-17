@@ -499,3 +499,244 @@ gets() (now removed from C11) read a whole line until newline and stored it into
 **Explanation:** They slightly increase source code size but not the compiled binary.
 
 ---
+
+## 2. Coding Practice Questions (50)
+
+### B. Variables (5 Questions with Full Solutions)
+
+**Q1. Declare three variables of different types and print them.**
+
+**Solution:**
+```c
+#include <stdio.h>
+
+int main() {
+    int number = 42;
+    float decimal = 3.14;
+    char letter = 'A';
+    
+    printf("Integer: %d\n", number);
+    printf("Float: %.2f\n", decimal);
+    printf("Character: %c\n", letter);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- We declare three variables of different data types: `int`, `float`, and `char`
+- Each variable is initialized with a value
+- We use `printf()` with appropriate format specifiers:
+  - `%d` for integers
+  - `%.2f` for floats (`.2` limits decimal places to 2)
+  - `%c` for characters
+- The program demonstrates how different data types are declared and printed
+
+---
+
+**Q2. Swap two integer variables without using a third variable.**
+
+**Solution:**
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 10, b = 20;
+    
+    printf("Before swap: a = %d, b = %d\n", a, b);
+    
+    // Method 1: Using arithmetic operations
+    a = a + b;  // a = 30, b = 20
+    b = a - b;  // b = 30 - 20 = 10
+    a = a - b;  // a = 30 - 10 = 20
+    
+    printf("After swap: a = %d, b = %d\n", a, b);
+    
+    // Alternative Method 2: Using XOR (bitwise operation)
+    int x = 15, y = 25;
+    printf("Before XOR swap: x = %d, y = %d\n", x, y);
+    
+    x = x ^ y;  // x = 15 ^ 25
+    y = x ^ y;  // y = (15 ^ 25) ^ 25 = 15
+    x = x ^ y;  // x = (15 ^ 25) ^ 15 = 25
+    
+    printf("After XOR swap: x = %d, y = %d\n", x, y);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- **Method 1 (Arithmetic):** Uses addition and subtraction to swap values
+  - Step 1: `a = a + b` stores the sum in `a`
+  - Step 2: `b = a - b` gives us the original value of `a` in `b`
+  - Step 3: `a = a - b` gives us the original value of `b` in `a`
+- **Method 2 (XOR):** Uses bitwise XOR operation
+  - XOR has the property: `(a ^ b) ^ b = a`
+  - This method works only for integers and is more efficient
+- Both methods avoid using a temporary variable, saving memory
+
+---
+
+**Q3. Store the ASCII value of a character entered by the user.**
+
+**Solution:**
+```c
+#include <stdio.h>
+
+int main() {
+    char character;
+    int ascii_value;
+    
+    printf("Enter a character: ");
+    scanf(" %c", &character);  // Note the space before %c to handle whitespace
+    
+    // Method 1: Direct assignment (implicit conversion)
+    ascii_value = character;
+    
+    // Method 2: Explicit casting
+    // ascii_value = (int)character;
+    
+    printf("Character: %c\n", character);
+    printf("ASCII value: %d\n", ascii_value);
+    printf("ASCII value in hex: 0x%X\n", ascii_value);
+    
+    // Demonstrate reverse operation
+    printf("Character from ASCII %d: %c\n", ascii_value, ascii_value);
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- We declare a `char` variable to store the input character and an `int` variable for the ASCII value
+- `scanf(" %c", &character)` reads a single character (the space before `%c` skips any leading whitespace)
+- When we assign `character` to `ascii_value`, C automatically converts the char to its ASCII integer value
+- We can also use explicit casting: `(int)character`
+- The program shows the character, its ASCII value in decimal and hexadecimal
+- We demonstrate that we can convert back from ASCII value to character
+
+---
+
+**Q4. Demonstrate the difference between signed and unsigned integers.**
+
+**Solution:**
+```c
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    // Declare signed and unsigned variables
+    signed int signed_num = -100;
+    unsigned int unsigned_num = 100;
+    
+    printf("Signed integer: %d\n", signed_num);
+    printf("Unsigned integer: %u\n", unsigned_num);
+    
+    // Demonstrate range differences
+    printf("\n--- Range Demonstration ---\n");
+    printf("Signed int range: %d to %d\n", INT_MIN, INT_MAX);
+    printf("Unsigned int range: 0 to %u\n", UINT_MAX);
+    
+    // Show what happens with overflow
+    printf("\n--- Overflow Demonstration ---\n");
+    unsigned int u_max = UINT_MAX;
+    printf("Unsigned max: %u\n", u_max);
+    u_max = u_max + 1;  // This will wrap around to 0
+    printf("After adding 1: %u\n", u_max);
+    
+    signed int s_max = INT_MAX;
+    printf("Signed max: %d\n", s_max);
+    s_max = s_max + 1;  // This will wrap around to INT_MIN
+    printf("After adding 1: %d\n", s_max);
+    
+    // Demonstrate negative values
+    printf("\n--- Negative Values ---\n");
+    signed int negative = -50;
+    printf("Signed negative: %d\n", negative);
+    
+    // Converting negative signed to unsigned (dangerous!)
+    unsigned int converted = (unsigned int)negative;
+    printf("Converted to unsigned: %u\n", converted);
+    printf("This shows why unsigned can be dangerous!\n");
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- **Signed integers** can represent both positive and negative values
+- **Unsigned integers** can only represent non-negative values (0 and positive)
+- The range of unsigned integers is larger on the positive side because they don't need to represent negative values
+- **Overflow behavior:**
+  - Unsigned integers wrap around to 0 when they exceed their maximum
+  - Signed integers wrap around to their minimum value when they exceed their maximum
+- **Type conversion:** Converting negative signed values to unsigned can lead to unexpected large positive numbers
+- Always use the appropriate format specifier: `%d` for signed, `%u` for unsigned
+
+---
+
+**Q5. Increment and decrement a variable and display results.**
+
+**Solution:**
+```c
+#include <stdio.h>
+
+int main() {
+    int number = 10;
+    
+    printf("Initial value: %d\n", number);
+    
+    // Pre-increment (++number)
+    printf("Pre-increment ++number: %d\n", ++number);
+    printf("Value after pre-increment: %d\n", number);
+    
+    // Post-increment (number++)
+    printf("Post-increment number++: %d\n", number++);
+    printf("Value after post-increment: %d\n", number);
+    
+    // Pre-decrement (--number)
+    printf("Pre-decrement --number: %d\n", --number);
+    printf("Value after pre-decrement: %d\n", number);
+    
+    // Post-decrement (number--)
+    printf("Post-decrement number--: %d\n", number--);
+    printf("Value after post-decrement: %d\n", number);
+    
+    // Demonstrate the difference in expressions
+    printf("\n--- Expression Examples ---\n");
+    int a = 5, b = 5;
+    int result1 = ++a;  // a becomes 6, result1 = 6
+    int result2 = b++;  // b becomes 6, result2 = 5
+    
+    printf("Pre-increment: ++a = %d, a = %d\n", result1, a);
+    printf("Post-increment: b++ = %d, b = %d\n", result2, b);
+    
+    // Show in loops
+    printf("\n--- Loop Example ---\n");
+    printf("Using pre-increment:\n");
+    for(int i = 0; i < 3; ++i) {
+        printf("i = %d\n", i);
+    }
+    
+    printf("Using post-increment:\n");
+    for(int j = 0; j < 3; j++) {
+        printf("j = %d\n", j);
+    }
+    
+    return 0;
+}
+```
+
+**Explanation:**
+- **Pre-increment (`++number`)**: Increments the value first, then returns the new value
+- **Post-increment (`number++`)**: Returns the current value first, then increments
+- **Pre-decrement (`--number`)**: Decrements the value first, then returns the new value
+- **Post-decrement (`number--`)**: Returns the current value first, then decrements
+- **Key difference:** In expressions, pre-increment/decrement affects the value before it's used, while post-increment/decrement affects it after
+- **In loops:** Both `i++` and `++i` work the same way because the increment happens at the end of the loop iteration
+- **Best practice:** Use pre-increment/decrement when you don't need the old value, as it can be slightly more efficient
+
+---
+
+
